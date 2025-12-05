@@ -12,8 +12,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 40px;
-  background: #fff;
-  border-bottom: 2px solid #ddd;
+  background: #ea7deb;
+  border-radius: 7px;
+  border-bottom: 5px solid #3d08ba;
   position: sticky;
   top: 0;
   z-index: 1000;
