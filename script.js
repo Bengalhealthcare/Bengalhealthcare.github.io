@@ -1,4 +1,76 @@
+// Minimal JS: menu toggle, appointment open/close, tabs and mock form submit
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('site-nav');
+
+  navToggle && navToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    nav.setAttribute('aria-hidden', String(!isOpen));
+  });
+
+  // Tabs
+  const tabs = document.querySelectorAll('.tab');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false') });
+      tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+
+      // show/hide contents
+      const target = tab.dataset.tab;
+      tabContents.forEach(tc => {
+        if (tc.id === target) {
+          tc.classList.add('active'); tc.hidden = false;
+        } else {
+          tc.classList.remove('active'); tc.hidden = true;
+        }
+      });
+    });
+  });
+});
+
+// Appointment form functions
+function openForm(e){
+  if (e) e.preventDefault();
+  const popup = document.getElementById('appointmentForm');
+  popup.setAttribute('aria-hidden','false');
+  // trap focus could be added for accessibility
+}
+
+function closeForm(){
+  const popup = document.getElementById('appointmentForm');
+  popup.setAttribute('aria-hidden','true');
+  document.getElementById('formStatus').textContent = '';
+}
+
+// Mock send (replace with your Apps Script POST or fetch)
+function sendToGAS(event){
+  event.preventDefault();
+  const statusEl = document.getElementById('formStatus');
+  statusEl.textContent = 'Sending...';
+
+  const form = event.target;
+  const fd = new FormData(form);
+  // Example: you will replace with actual fetch to Apps Script endpoint
+  setTimeout(() => {
+    statusEl.textContent = 'Appointment request submitted. We will contact you shortly.';
+    form.reset();
+    setTimeout(() => closeForm(), 1600);
+  }, 900);
+}
+
+
+
+
+
+
+
 // JS slider
+
+
+
 const hero = document.getElementById("hero");
 
 // List of images
@@ -218,3 +290,5 @@ async function downloadCSVAdmin() {
     alert('Network error — check console.');
   }
 }
+
+
