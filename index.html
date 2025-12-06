@@ -1,182 +1,172 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Bengal HealthCare — Nursing Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body id="home">
 
-  <header class="header">
-    <div class="logo">
-      <img src="images/logo1.jpg" alt="Bengal HealthCare Logo">
-      <span>Bengal HealthCare</span>
+  <!-- MAIN HEADER -->
+  <header class="header" role="banner">
+    <div class="logo" aria-label="Bengal HealthCare logo">
+      <img src="images/logo.png" alt="Bengal HealthCare Logo">
+      <span class="brand">Bengal HealthCare</span>
     </div>
 
-    <nav class="nav">
+    <!-- Hamburger for mobile -->
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+      <span class="hamburger"></span>
+    </button>
+
+    <nav id="site-nav" class="nav" role="navigation">
+       <div class="nav-right"><a href="https://www.facebook.com/share/16SiKuzBng/" target="_blank">
+    <i class="fa-brands fa-facebook-f"></i> </a></div>
       <a href="#home">Home</a>
       <a href="#doctors">Our Doctors</a>
       <a href="#services">Our Services</a>
       <a href="#facilities">Facilities</a>
       <a href="#contact">Contact</a>
-      <a href="/carrer.html">Carrer</a>
+      <a href="/carrer.html">Career</a>
       <a href="#mission">Mission</a>
-      <a href="#mission">Director Message</a>
+      <a href="#director">Director Message</a>
     </nav>
 
-    <a href="#appointment" class="btn-appointment"onclick="openForm(event)">Make an Appointment</a>
-
-    <div id="appointmentForm" class="appointment-popup" aria-hidden="true">
-      <div class="appointment-content" role="dialog" aria-modal="true" aria-labelledby="appt-title">
-        <button class="close-x" onclick="closeForm()" title="Close">✕</button>
-        <h2 id="appt-title">Book Appointment</h2>
-
-        <form id="apptForm" onsubmit="sendToGAS(event)">
-          <input name="name" required placeholder="Your Name" />
-          <input name="email" type="email" required placeholder="Your Email" />
-          <input name="phone" required placeholder="Phone Number" />
-          <input name="date" type="date" required />
-          <textarea name="message" required placeholder="Tell us your problem..."></textarea>
-
-          <!-- SECRET TOKEN: must match ALLOWED_TOKEN in Apps Script -->
-          <input type="hidden" name="token" value="YOUR_TOKEN_HERE">
-
-          <div style="display:flex; gap:8px; margin-top:8px;">
-            <button type="submit">Submit</button>
-            <button type="button" onclick="closeForm()">Cancel</button>
-          </div>
-        </form>
-
-        <div id="formStatus" style="margin-top:12px;"></div>
-      </div>
-    </div>
-    </div>
-    </div>
-
-
-
-
-
+    <a href="#appointment" class="btn-appointment" onclick="openForm(event)">Make Appointment</a>
   </header>
 
+  <!-- APPOINTMENT POPUP -->
+  <div id="appointmentForm" class="appointment-popup" aria-hidden="true">
+    <div class="appointment-content" role="dialog" aria-modal="true" aria-labelledby="appt-title">
+      <button class="close-x" onclick="closeForm()" title="Close" aria-label="Close appointment form">✕</button>
+      <h2 id="appt-title">Book Appointment</h2>
 
+      <form id="apptForm" onsubmit="sendToGAS(event)" novalidate>
+        <input name="name" required placeholder="Your Name" />
+        <input name="email" type="email" required placeholder="Your Email" />
+        <input name="phone" required placeholder="Phone Number" />
+        <input name="date" type="date" required />
+        <textarea name="message" required placeholder="Tell us your problem..."></textarea>
 
-  <header class="hero" id="hero">
+        <!-- SECRET TOKEN: must match ALLOWED_TOKEN in Apps Script -->
+        <input type="hidden" name="token" value="YOUR_TOKEN_HERE">
+
+        <div class="form-actions">
+          <button type="submit" class="btn">Submit</button>
+          <button type="button" class="btn btn-secondary" onclick="closeForm()">Cancel</button>
+        </div>
+      </form>
+
+      <div id="formStatus" class="form-status" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero" aria-label="Hero section">
     <div class="hero-text">
       <h1>Better Healthcare in Arambagh</h1>
       <p>Providing compassionate care with expert doctors for your family.</p>
-      <a href="#appointment" class="btn-appointment">Book Appointment</a>
+      <!-- <a href="#appointment" class="btn-appointment" onclick="openForm(event)">Book Appointment</a> -->
+       <div class="nav-right">
+</div>
+
     </div>
-  </header>
+  </section>
 
-
-
-  <main class="container"id="services">
-    <!-- What Makes You Better Section -->
-    <div class="section-container" >
+  <main class="container" id="services" role="main">
+    <!-- Sections -->
+    <section class="section-container">
       <div class="section-content">
         <img src="images/image -1 better.jpg" alt="Healthcare Service">
         <div class="section-text">
           <h3>ADVANCED HEALTHCARE, ACCESSIBLE TO ALL</h3>
           <p>
-            At Bengal health care Nursing Home, we believe that everyone deserves access to quality medical care.
-            Our modern facilities, including advanced Operation Theatres and ICUs, are designed to provide
-            comprehensive healthcare at affordable costs.
+            At Bengal HealthCare Nursing Home, everyone deserves quality medical care.
+            Our modern facilities, including advanced operation theatres and ICUs, are designed to provide
+            comprehensive care at affordable costs.
           </p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Doctors Section -->
-    <div class="section-container">
+    <section class="section-container">
       <div class="section-content reverse">
         <img src="images/doctors-image.jpg" alt="Experienced Doctors">
         <div class="section-text">
           <h3>EXPERIENCED DOCTORS, DEDICATED CARE</h3>
           <p>
-            At Bengal health care Nursing Home, you’re in expert hands. Our team of highly qualified doctors
-            has been serving the community for years, providing personalized care with a commitment
-            to your well-being.
+            Our team of highly qualified doctors provides personalized care committed to your well-being.
           </p>
         </div>
       </div>
-    </div>
+    </section>
 
-
-    <div class="section-container">
+    <section class="section-container">
       <div class="section-content">
-        <img src="images/personalize checkup.avif" alt="Healthcare Service">
+        <img src="images/personalize checkup.avif" alt="Personalized Checkups">
         <div class="section-text">
           <h3>PERSONALIZED CHECK-UPS FOR EVERY NEED</h3>
           <p>
-            Whether you need a routine check-up, specialized screening, or diagnostic testing, Bengal health care
-            Nursing Home has
-            a plan for you. Our experienced doctors will tailor your check-up to your individual needs and health goals.
+            Routine check-ups, screenings, and diagnostic tests tailored to your health goals.
           </p>
         </div>
       </div>
-    </div>
+    </section>
 
-
-    <div class="section-container">
+    <section class="section-container">
       <div class="section-content reverse">
-        <img src="images/commit img.avif" alt="Healthcare Service">
+        <img src="images/commit img.avif" alt="Commitment">
         <div class="section-text">
           <h3>YOUR WELL-BEING, OUR COMMITMENT</h3>
           <p>
-            Experience the highest standards of medical care at Bengal health care Nursing Home. Our skilled
-            professionals,
-            state-of-the-art infrastructure, and cutting-edge technology work together to provide exceptional service to
-            every patient.
+            Skilled professionals and state-of-the-art infrastructure delivering exceptional service to every patient.
           </p>
         </div>
       </div>
-    </div>
-
-
-
-
-
-
-    <div class="section-container" id="doctors">
-      <aside class="card">
-        <h3>Doctor's List</h3>
-        <div id="timetableWrap"></div>
-      </aside>
-    </div>
     </section>
 
-    <!-- ---------------doctors section  ----------------------->
-    <section class="doctor-section">
-      <h1>Our Specialist Doctors</h1>
+    <!-- Doctors list card -->
+    <section class="section-container" id="doctors">
+      <aside class="card doctor-list">
+        <h3>Doctor's List</h3>
+        <div id="timetableWrap">
+          <!-- if you want to populate from JS, use this element -->
+          <p class="small muted">Timings & availability to be added.</p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Specialist Doctors -->
+   <section class="doctor-section">
+      <h2  >Our Specialist Doctors</h2>
+      <div class="doctor-section">
+       <div class="doctor-list">
 
       <div class="doctor-card">
-        <img src="images/Doctors/doctors-image.jpg" alt="Dr. Nabin kumar Gupta">
+        <img src="images/Doctors/nabin kumar gupta.jpg" alt="Dr. Nabin kumar Gupta">
         <h3>Dr. Naveen kumar Gupta</h3>
         <p>Eurologist</p>
         <p>MBBS(HONS),MS(CAL)MHC(EURO),<br /> GOLD MEDALIST, P.G Medical College and Hospital</p>
       </div>
 
       <div class="doctor-card">
-        <img src="images/Doctors/doctors-image.jpg" alt="Dr. A. Pani">
+        <img src="images/Doctors/A_pani.jpg" alt="Dr. A. Pani">
         <h3>Dr. A. Pani</h3>
         <p>Nephrologist</p>
         <p>MBBS(CAL),MD MEDICINE(CAL),DM(nephrology), <br /> Kolkata Medical College</p>
       </div>
 
       <div class="doctor-card">
-        <img src="images/Doctors/doctors-image.jpg" alt="Dr. Souvik Ghatak">
+        <img src="images/Doctors/souvik ghatak.jpeg" alt="Dr. Souvik Ghatak">
         <h3>Dr. Souvik Ghatak</h3>
         <p>Nephrologist</p>
         <p>MBBS,MD(GENERAL MEDICINE),DNB,PDT,DM(Nephrology),<br /> P.G Hospital kolkata</p>
       </div>
 
       <div class="doctor-card">
-        <img src="images/Doctors/doctors-image.jpg" alt="Dr. Soham Das Bakshi">
+        <img src="images/Doctors/sohom_das_b.jpeg" alt="Dr. Soham Das Bakshi">
         <h3>Dr. Soham Das Bakshi</h3>
         <p>General Medicine</p>
         <p>MBBS,MD(GENERAL MEDICINE),Arambagh Medical College</p>
@@ -190,14 +180,14 @@
       </div>
 
       <div class="doctor-card">
-        <img src="images/Doctors/doctors-image.jpg" alt="Dr. Manish Sharma">
+        <img src="images/Doctors/Mk sharma.jpeg" alt="Dr. Manish Sharma">
         <h3>Dr. Manish Sharma</h3>
         <p>Medicine</p>
         <p> MBBS(GENERAL PHYSICIAN) ,Arambagh Medical College</p>
       </div>
 
       <div class="doctor-card">
-        <img src="images/Doctors/doctors-image.jpg" alt="Dr. Anukaran Saha">
+        <img src="images/Doctors/Anukoron_saha.jpg" alt="Dr. Anukaran Saha">
         <h3>Dr. Anukaran Saha</h3>
         <p>Gynecologist and Obstetrician</p>
         <p>MBBS(HONS),MS(Obstetrician and Gynecologist) , Arambagh Medical College</p>
@@ -218,135 +208,104 @@
       </div>
 
       <div class="doctor-card">
-        <img src="images/Doctors/doctors-image.jpg" alt="Dr. Sukanta Chakrabarty">
+        <img src="images/Doctors/s chakraborty.jpeg" alt="Dr. Sukanta Chakrabarty">
         <h3>Dr. Sukanta Chakrabortty</h3>
         <p>General Surgeon</p>
         <p>MBBS,MD(Surgeon),kolkata P.G and Arambagh Medical College</p>
       </div>
 
       <div class="doctor-card">
-        <img src="images/Doctors/doctors-image.jpg" alt="Dr. Arijit Ghosh">
+        <img src="images/Doctors/Dr arijit ghosh.jpeg" alt="Dr. Arijit Ghosh">
         <h3>Dr. Arijit Ghosh</h3>
         <p>Neurologist Surgeon</p>
         <p>MBBS,MSMC(Neurologist Surgeon),Professor of Bangur Hospital</p>
       </div>
 
       <div class="doctor-card">
-        <img src="images/Doctors/doctors-image.jpg" alt="Dr. Shirshendu Kheto">
+        <img src="images/Doctors/sirshendu kheto.jpeg" alt="Dr. Shirshendu Kheto">
         <h3>Dr. Shirshendu Kheto</h3>
         <p>Orthopaedic Surgeon</p>
         <p>MBBS,MS(Orthopaedic Surgeon),Arambagh Medical College</p>
       </div>
-
+      </div>
+      </div>
     </section>
-    <!-- ----------------------------------------------------new section------------------------------------------ -->
 
-    <section class="about-section">
+    <!-- About / Tabs -->
+    <section class="about-section" aria-label="About Bengal HealthCare">
       <h2 class="section-title">Getting to Know Us</h2>
 
-      <!-- Tabs -->
-      <div class="tabs">
-        <button class="tab active" data-tab="facilities">24x7 Facilities</button>
-        <button class="tab" data-tab="theatre">Operation Theatre</button>
-        <button class="tab" data-tab="speciality">Super Speciality Services</button>
-        <button class="tab" data-tab="director">From Our Director</button>
+      <div class="tabs" role="tablist" aria-label="About tabs">
+        <button class="tab active" data-tab="facilities" role="tab" aria-selected="true">24x7 Facilities</button>
+        <button class="tab" data-tab="theatre" role="tab" aria-selected="false">Operation Theatre</button>
+        <button class="tab" data-tab="speciality" role="tab" aria-selected="false">Super Speciality</button>
+        <button class="tab" data-tab="director" role="tab" aria-selected="false">From Our Director</button>
       </div>
 
-      <!-- Tab Content -->
-      <div class="tab-content active" id="facilities">
-        <div class="content-box">
-          <div class="text">
-            <h3>24x7 Facilities</h3>
-            <p>
-              Bengal HealthCare offers 24/7 healthcare services, including emergency care, maternity support, ICU with
-              ventilators, dialysis, and advanced diagnostic testing for prompt treatment.
-            </p>
+      <div class="tab-contents">
+        <div class="tab-content active" id="facilities" role="tabpanel">
+          <div class="content-box">
+            <div class="text">
+              <h3>24x7 Facilities</h3>
+              <p>
+                24/7 emergency care, ICU with ventilators, dialysis, and advanced diagnostics.
+              </p>
+            </div>
+            <img src="images/content-nursing/facilityes.avif" alt="Facilities">
           </div>
-          <img src="images/content-nursing/facilityes.avif" alt="Facilities">
         </div>
-      </div>
 
-      <div class="tab-content" id="theatre">
-        <div class="content-box">
-          <div class="text">
-            <h3>Operation Theatre</h3>
-            <p>
-              Our modular laminar flow operation theatre ensures world-class surgical care with advanced sterilization
-              and safety standards for patients.
-            </p>
+        <div class="tab-content" id="theatre" role="tabpanel" hidden>
+          <div class="content-box">
+            <div class="text">
+              <h3>Operation Theatre</h3>
+              <p>Modular laminar flow theatres ensuring world-class surgical care.</p>
+            </div>
+            <img src="images/content-nursing/op theater.jpg" alt="Operation Theatre">
           </div>
-          <img src="images/content-nursing/op theater.jpg" alt="Operation Theatre">
         </div>
-      </div>
 
-      <div class="tab-content" id="speciality">
-        <div class="content-box">
-          <div class="text">
-            <h3>Super Speciality Services</h3>
-            <p>
-              With expert doctors across multiple specialities, we provide cardiac, neurological, orthopaedic, and
-              paediatric care all under one roof.
-            </p>
+        <div class="tab-content" id="speciality" role="tabpanel" hidden>
+          <div class="content-box">
+            <div class="text">
+              <h3>Super Speciality Services</h3>
+              <p>Cardiac, neurological, orthopaedic and paediatric care under one roof.</p>
+            </div>
+            <img src="images/content-nursing/super speciality service.avif" alt="Speciality Services">
           </div>
-          <img src="images/content-nursing/super speciality service.avif" alt="Speciality Services">
         </div>
-      </div>
 
-      <div class="tab-content" id="director">
-        <div class="content-box">
-          <div class="text">
-            <h3>Message from Our Director</h3>
-            <p>
-              At Bengal HealthCare, we are committed to delivering compassionate and affordable medical care to every
-              patient who walks through our doors.
-            </p>
+        <div class="tab-content" id="director" role="tabpanel" hidden>
+          <div class="content-box">
+            <div class="text">
+              <h3>Message from Our Director</h3>
+              <p>We are committed to delivering compassionate and affordable medical care to every patient.</p>
+            </div>
+            <img src="images/content-nursing/director image.jpg" alt="Director Message">
           </div>
-          <img src="images/content-nursing/director image.jpg" alt="Director Message">
         </div>
       </div>
     </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <footer id="contact">
+    <!-- FOOTER / CONTACT -->
+    <footer id="contact" role="contentinfo">
       <h4>Contact Us</h4>
       <p>Bengal HealthCare Nursing Home</p>
       <p>Location: Arambag Bus Stand, Arambagh, West Bengal</p>
-      <p>Phone: +91 9735444433 | Phone: +91 9735444477 | Phone: +91 9735444488 | Email: info@bengalhealthcare.com</p>
+      <p>Phone: +91 9735444433 | +91 9735444477 | +91 9735444488</p>
+      <p>Email: <a href="mailto:info@bengalhealthcare.com" style="color: rgb(3, 4, 15);font-weight: bold;">info@bengalhealthcare.com</a></p>
+
       <div class="footer-links">
         <a href="#services">Services</a>
         <a href="#doctors">Doctors</a>
         <a href="#register">Registration</a>
         <a href="#">Privacy Policy</a>
       </div>
-      <p style="margin-top:12px;font-size:13px;opacity:0.8">
-        © 2025 Bengal HealthCare. All Rights Reserved.
-      </p>
+
+      <p class="copyright">© 2025 Bengal HealthCare. All Rights Reserved.</p>
     </footer>
-
   </main>
+
   <script src="script.js"></script>
-
-  
-
-
-
 </body>
-
 </html>
