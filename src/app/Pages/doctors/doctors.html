@@ -1,0 +1,155 @@
+<section class="doctors-page">
+  <h1 class="title">DOCTORS</h1>
+
+  <div class="table-wrapper">
+    <table class="doctors-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Specialty</th>
+          <th>Present Working</th>
+          <th>Phone</th>
+          <th>Dates</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Dr. Naveen kumar Gupta</td>
+          <td>Eurologist</td>
+          <td>P.G Medical College and Hospital</td>
+          <td>-</td>
+          <td>Every Month: 1st & 3rd Sunday</td>
+        </tr>
+
+        <tr>
+          <td>Dr. A. Pani</td>
+          <td>Nephrologist</td>
+          <td>Kolkata Medical College</td>
+          <td>-</td>
+          <td>Every Month: 2nd & 4th Tuesday</td>
+        </tr>
+
+        <tr>
+          <td>Dr. Souvik Ghatak</td>
+          <td>Nephrologist</td>
+          <td>P.G Hospital kolkata</td>
+          <td>-</td>
+          <td>Available</td>
+        </tr>
+
+          <tr>
+          <td>Dr. Soham Das Bakshi</td>
+          <td>General Medicine</td>
+          <td>Arambagh Medical College</td>
+          <td>-</td>
+          <td>Available</td>
+        </tr>
+
+         <tr>
+          <td>Dr. Ayan Midya</td>
+          <td>General Medicine</td>
+          <td>Professor of Arambagh Medical College</td>
+          <td>-</td>
+          <td>Every Week: Monday & Tuesday</td>
+        </tr>
+
+
+        <tr>
+          <td>Dr. Manish Sharma</td>
+          <td>Medicine</td>
+          <td>Arambagh Medical College</td>
+          <td>-</td>
+          <td>Every week: Monday to Thursday </td>
+        </tr>
+
+
+          <tr>
+          <td>Dr. Anukaran Saha</td>
+          <td>Gynecologist & Obstetrician</td>
+          <td>Arambagh Medical College</td>
+          <td>-</td>
+          <td>Available</td>
+        </tr>
+
+
+         <tr>
+          <td>Dr. Shatavisa khara</td>
+          <td>Gynecologist & Obstetrician</td>
+          <td>Arambagh Medical College</td>
+          <td>-</td>
+          <td>Every Week: Saturday</td>
+        </tr>
+
+
+         <tr>
+          <td>Dr. Satrajit Ghoshal</td>
+          <td>Neurologist & Psychiatrist</td>
+          <td>Santiniketan Medical College</td>
+          <td>-</td>
+          <td>Every Week: Wednesday</td>
+        </tr>
+
+
+        
+         <tr>
+          <td>Dr. Sukanta Chakrabortty</td>
+          <td>General Surgeon</td>
+          <td>kolkata P.G and Arambagh Medical College</td>
+          <td>-</td>
+          <td>Every Week: Monday to Thursday</td>
+        </tr>
+
+
+          <tr>
+          <td>Dr. Arijit Ghosh</td>
+          <td>Neurologist Surgeon</td>
+          <td>Professor of Bangur Hospital</td>
+          <td>-</td>
+          <td>Every 15 days:Sunday</td>
+        </tr>
+
+         <tr>
+          <td>Dr. Shirshendu Kheto</td>
+          <td>Orthopaedic Surgeon</td>
+          <td>Arambagh Medical College</td>
+          <td>-</td>
+          <td>Available</td>
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+
+  <h1 style="border: 5px;display: block;margin: auto;text-align: center;color: antiquewhite;">Doctors Details</h1>
+  <div class="search-box">
+  <input
+    type="text"
+    placeholder="Search by specialization (Cardio, Ortho...)"
+    [(ngModel)]="searchText"
+    (input)="searchBySpecilization()"
+  />
+</div>
+
+<div class="doctor-container">
+  <div class="doctor-card" *ngFor="let doctor of filterDoctors">
+    <img [src]="doctor.photo" alt="{{ doctor.name }}">
+    <h3>{{ doctor.name }}</h3>
+    <p>{{ doctor.specialization }}</p>
+  </div>
+</div>
+
+<!-- <div class="doctor-container">
+  <div class="doctor-card" *ngFor="let doctor of doctors">
+    <img [src]="doctor.photo" alt="{{ doctor.name }}">
+    <h3>{{ doctor.name }}</h3>
+    <p>{{ doctor.specialization }}</p>
+  </div>
+</div> -->
+
+
+
+
+</section>
+
